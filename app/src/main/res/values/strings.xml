@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Artist</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_song_player">SongPlayer</string>
+    <string name="title_activity_video_player">VideoPlayer</string>
+    <string name="title_activity_wall_paper">WallPaper</string>
+    <string name="title_activity_mail_list">MailList</string>
+
+</resources>
