@@ -80,4 +80,15 @@
         android:layout_alignParentStart="true"
         android:onClick="back"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="By clicking confirm, the app will call the system email app to send an email containts your name and email to the artist's email address."
+        android:id="@+id/textView4"
+        android:layout_above="@+id/confirm"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="59dp" />
+
 </RelativeLayout>

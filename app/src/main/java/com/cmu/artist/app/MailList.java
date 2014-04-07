@@ -6,9 +6,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
 
 public class MailList extends ActionBarActivity {
+
+    EditText nameET;
+    EditText emailET;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +47,24 @@ public class MailList extends ActionBarActivity {
     }
 
     public void confirm(View view){
-        Intent intent = new Intent(this, InfoPage.class);
-        startActivity(intent);
+
+        nameET = (EditText) findViewById(R.id.name);
+        emailET = (EditText) findViewById(R.id.email);
+
+        String nameS = nameET.getText().toString();
+        String emailS = emailET.getText().toString();
+
+        Intent email = new Intent(android.content.Intent.ACTION_SEND);
+        email.setType("plain/text");
+        String[] emailReciver = new String[]{"safenzhai@me.com"};
+
+        String emailTitle = "Adding to Mailling List";
+        String emailContent = "Name:"+nameS+"\nEmail:"+emailS;
+        email.putExtra(android.content.Intent.EXTRA_EMAIL, emailReciver);
+        email.putExtra(android.content.Intent.EXTRA_SUBJECT, emailTitle);
+        email.putExtra(android.content.Intent.EXTRA_TEXT, emailContent);
+        startActivity(Intent.createChooser(email, "Choose Email App"));
+
     }
 
 
