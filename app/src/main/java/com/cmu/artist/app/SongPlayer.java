@@ -1,14 +1,16 @@
 package com.cmu.artist.app;
 
+import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
-import android.net.Uri;
-import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
+
+import java.io.IOException;
 
 
 public class SongPlayer extends ActionBarActivity {
@@ -47,21 +49,100 @@ public class SongPlayer extends ActionBarActivity {
         startActivity(intent);
     }
 
-    public void song1(View view){
-        mediaPlayer = MediaPlayer.create(this, Uri.parse(Environment.getExternalStorageDirectory().getPath() + "/media/MP3_1.mp3"));
+    public void song1(View view) throws IOException {
+
+        if (mediaPlayer !=null){
+
+            mediaPlayer.stop();
+
+        }
+        mediaPlayer = MediaPlayer.create(this, R.raw.mp3a);
+        if (mediaPlayer !=null){
+
+            mediaPlayer.stop();
+
+        }
+        mediaPlayer.prepare();
         mediaPlayer.start();
+
+        Context context = getApplicationContext();
+        CharSequence text = "First song is playing";
+        int duration = Toast.LENGTH_LONG;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+
     }
 
-    public void song2(View view){
+    public void song2(View view) throws IOException {
+
+
+        if (mediaPlayer !=null){
+
+            mediaPlayer.stop();
+
+        }
+        mediaPlayer = MediaPlayer.create(this, R.raw.mp3b);
+        if (mediaPlayer !=null){
+
+            mediaPlayer.stop();
+
+        }
+        mediaPlayer.prepare();
+        mediaPlayer.start();
+
+
+        Context context = getApplicationContext();
+        CharSequence text = "Second song is playing";
+        int duration = Toast.LENGTH_LONG;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+
     }
 
     public void pause(View view){
+
+        if(mediaPlayer.isPlaying()) {
+            mediaPlayer.pause();
+
+
+            Context context = getApplicationContext();
+            CharSequence text = "Music pause";
+            int duration = Toast.LENGTH_LONG;
+
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }
+
     }
 
     public void stop(View view){
+        if(mediaPlayer.isPlaying()) {
+            mediaPlayer.stop();
+
+
+            Context context = getApplicationContext();
+            CharSequence text = "Music stop";
+            int duration = Toast.LENGTH_LONG;
+
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }
+
     }
 
     public void resume(View view){
+        mediaPlayer.start();
+
+        Context context = getApplicationContext();
+        CharSequence text = "Song resume";
+        int duration = Toast.LENGTH_LONG;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+
+
     }
 
 
