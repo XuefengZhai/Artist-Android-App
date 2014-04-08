@@ -32,6 +32,10 @@
             android:name="com.cmu.artist.app.MailList"
             android:label="@string/title_activity_mail_list" >
         </activity>
+        <activity
+            android:name="com.cmu.artist.app.VideoList"
+            android:label="@string/title_activity_video_list" >
+        </activity>
     </application>
 
 </manifest>

@@ -6,32 +6,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.MediaController;
-import android.widget.VideoView;
 
 
-public class VideoPlayer extends ActionBarActivity {
+public class VideoList extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_video_player);
-
-        Intent intent=getIntent();
-        String video = intent.getStringExtra("video");
-
-        VideoView videoView = (VideoView)this.findViewById(R.id.videoView);
-        MediaController mc = new MediaController(this);
-        videoView.setMediaController(mc);
-        if(video.equals("1")) {
-            videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.mp4a);
-        }
-        else
-            videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.mp4b);
-
-        videoView.requestFocus();
-        videoView.start();
-
+        setContentView(R.layout.activity_video_list);
     }
 
 
@@ -39,7 +21,7 @@ public class VideoPlayer extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.video_player, menu);
+        getMenuInflater().inflate(R.menu.video_list, menu);
         return true;
     }
 
@@ -56,8 +38,24 @@ public class VideoPlayer extends ActionBarActivity {
     }
 
     public void back(View view){
-        Intent intent = new Intent(this, VideoList.class);
+        Intent intent = new Intent(this, InfoPage.class);
         startActivity(intent);
+    }
+
+    public void video1(View view){
+
+        Intent intent = new Intent(this, VideoPlayer.class);
+        intent.putExtra("video","1");
+        startActivity(intent);
+
+    }
+
+    public void video2(View view){
+
+        Intent intent = new Intent(this, VideoPlayer.class);
+        intent.putExtra("video","2");
+        startActivity(intent);
+
     }
 
 

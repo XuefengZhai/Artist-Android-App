@@ -8,5 +8,6 @@
     <string name="title_activity_video_player">VideoPlayer</string>
     <string name="title_activity_wall_paper">WallPaper</string>
     <string name="title_activity_mail_list">MailList</string>
+    <string name="title_activity_video_list">VideoList</string>
 
 </resources>

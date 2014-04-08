@@ -60,7 +60,7 @@ public class InfoPage extends ActionBarActivity {
     }
 
     public void video(View view){
-        Intent intent = new Intent(this, VideoPlayer.class);
+        Intent intent = new Intent(this, VideoList.class);
         startActivity(intent);
     }
 
