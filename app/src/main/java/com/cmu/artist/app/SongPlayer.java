@@ -45,6 +45,12 @@ public class SongPlayer extends ActionBarActivity {
     }
 
     public void back(View view){
+        if (mediaPlayer !=null){
+
+            mediaPlayer.stop();
+
+        }
+
         Intent intent = new Intent(this, InfoPage.class);
         startActivity(intent);
     }
